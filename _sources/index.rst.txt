@@ -13,12 +13,12 @@
 
    10_introduction
    20_singlepoint
-   20_model_chemistry
-   30_modeling
-   40_opt
-   50_others
-   95_glossary
+   30_model_chemistry
+   40_modeling
+   50_opt
+   80_others
    90_appendix_software
+   95_glossary
    99_reference
 
 Indices and tables

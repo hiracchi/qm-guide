@@ -21,6 +21,9 @@
   LUMO(Lowest Un-occupied Molecular Orbital)
     最もエネルギーの低い空軌道
 
+  LC法
+    密度汎関数法の交換汎関数において、Ewald分割によって短距離部にGGA交換項、長距離部にFock交換項を適用した計算法です。
+
   QCLO
     擬カノニカル局在化軌道(Quasi-Canonical Localized Orbital)。
 
@@ -38,4 +41,12 @@
 
       E_{corr} = E_{exact} - E_{HF}
 
+  アムダールの法則
+    並列計算を行っても、単体計算が必要な計算部分に足を引っ張られるために、台数効果に限界が現れる、悲観的な法則。
+
+  台数効果
+    並列計算を行った場合に、単体計算に比べてどれだけ速く計算できたかを測る指標。高速化率ともいわれる。
+
+  FLOPS
+    1秒間に浮動小数点演算(Floating Point Operations)が何回実行できるかを表す単位。
 
