@@ -31,6 +31,12 @@ GaussianだけでなくGAMESSの使い方、可視化方法、注意すべきこ
 HF法だけなら上巻だけでも良いかも。
 
 
+- タンパク質密度汎関数法 [#proteindf]_
+
+手前味噌ですが、KS方程式の導出からタンパク質の計算まで載っています。
+ハードカバーだから高い？
+
+
 ----
 
 .. [#modeling1] https://www.amazon.co.jp/dp/4805207523/
@@ -39,3 +45,4 @@ HF法だけなら上巻だけでも良いかも。
 .. [#qm1] https://www.amazon.co.jp/dp/4061543881
 .. [#Szabo1] https://www.amazon.co.jp/dp/4130621114/
 .. [#Szabo2] https://www.amazon.co.jp/dp/4130621122/
+.. [#proteindf] https://www.amazon.co.jp/dp/4627241410/
