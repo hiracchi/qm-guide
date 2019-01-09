@@ -1,0 +1,11 @@
+%Chk=formaldehyde.chk
+#P rb3lyp/6-31g sp
+GFOldPrint GFInput Pop=(full,esp)
+
+formaldehyde 
+
+0  1
+C           0.00000         0.54233         0.00000
+O           0.00000        -0.68915         0.00000
+H           0.93339         1.12962         0.00000
+H          -0.93340         1.12962         0.00000
