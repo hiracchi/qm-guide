@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. ソフトウェア &mdash; 量子化学計算ヒッチハイクガイド 2019.1.0/alpha ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="9. 参考文献" href="99_reference.html" />
+    <link rel="prev" title="7. 用語集" href="95_glossary.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> 量子化学計算ヒッチハイクガイド
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2019.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="10_introduction.html">1. はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_singlepoint.html">2. 一点 (single point) 計算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_model_chemistry.html">3. モデル化学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_modeling.html">4. 分子モデリング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_opt.html">5. 構造最適化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="50_others.html">6. 応用計算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="95_glossary.html">7. 用語集</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. ソフトウェア</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_reference.html">9. 参考文献</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">量子化学計算ヒッチハイクガイド</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>8. ソフトウェア</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/90_appendix_software.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>8. ソフトウェア<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Gaussian <a class="footnote-reference" href="#gaussian" id="id2">[1]</a></li>
+<li>GAMESS <a class="footnote-reference" href="#gamess" id="id3">[2]</a></li>
+<li>Psi4 <a class="footnote-reference" href="#psi4" id="id4">[3]</a></li>
+<li>QChem <a class="footnote-reference" href="#qchem" id="id5">[5]</a></li>
+<li>NWChem <a class="footnote-reference" href="#nwchem" id="id6">[4]</a></li>
+<li>NTChem <a class="footnote-reference" href="#qchem" id="id7">[5]</a></li>
+<li>SMASH <a class="footnote-reference" href="#smash" id="id8">[7]</a></li>
+<li>Abinit MP <a class="footnote-reference" href="#abinitmp" id="id9">[8]</a></li>
+<li>PAICS <a class="footnote-reference" href="#paics" id="id10">[9]</a></li>
+<li>ProteinDF <a class="footnote-reference" href="#proteindf" id="id11">[10]</a></li>
+</ul>
+<table class="docutils footnote" frame="void" id="gaussian" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="http://gaussian.com/">http://gaussian.com/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="gamess" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td><a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/">https://www.msg.chem.iastate.edu/gamess/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="psi4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[3]</a></td><td><a class="reference external" href="http://www.psicode.org">http://www.psicode.org</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="nwchem" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[4]</a></td><td><a class="reference external" href="http://www.nwchem-sw.org/">http://www.nwchem-sw.org/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="qchem" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id7">2</a>)</em> <a class="reference external" href="http://www.q-chem.com">http://www.q-chem.com</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="ntchem" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[6]</td><td><a class="reference external" href="http://molsc.riken.jp/ntchem_j.html">http://molsc.riken.jp/ntchem_j.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="smash" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[7]</a></td><td><a class="reference external" href="http://smash-qc.sourceforge.net">http://smash-qc.sourceforge.net</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="abinitmp" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[8]</a></td><td><a class="reference external" href="http://www.cenav.org/abinit_mp_open/">http://www.cenav.org/abinit_mp_open/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="paics" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[9]</a></td><td><a class="reference external" href="http://www.paics.net/index.html">http://www.paics.net/index.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="proteindf" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[10]</a></td><td><a class="reference external" href="https://proteindf.github.io/">https://proteindf.github.io/</a></td></tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="99_reference.html" class="btn btn-neutral float-right" title="9. 参考文献" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="95_glossary.html" class="btn btn-neutral" title="7. 用語集" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Toshiyuki HIRANO
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

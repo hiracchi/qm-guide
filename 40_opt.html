@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>量子化学計算ヒッチハイクガイド &mdash; 量子化学計算ヒッチハイクガイド 2019.1.0/alpha ドキュメント</title>
+  <title>5. 構造最適化 &mdash; 量子化学計算ヒッチハイクガイド 2019.1.0/alpha ドキュメント</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="1. はじめに" href="10_introduction.html" /> 
+    <link rel="next" title="6. 応用計算" href="50_others.html" />
+    <link rel="prev" title="4. 分子モデリング" href="30_modeling.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,7 +48,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> 量子化学計算ヒッチハイクガイド
+            <a href="index.html" class="icon icon-home"> 量子化学計算ヒッチハイクガイド
           
 
           
@@ -82,12 +83,16 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="10_introduction.html">1. はじめに</a></li>
 <li class="toctree-l1"><a class="reference internal" href="20_singlepoint.html">2. 一点 (single point) 計算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="20_model_chemistry.html">3. モデル化学</a></li>
 <li class="toctree-l1"><a class="reference internal" href="30_modeling.html">4. 分子モデリング</a></li>
-<li class="toctree-l1"><a class="reference internal" href="40_opt.html">5. 構造最適化</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 構造最適化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">5.1. 構造最適化の手順</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">5.2. 構造最適化のコツ</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="50_others.html">6. 応用計算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="95_glossary.html">7. 用語集</a></li>
 <li class="toctree-l1"><a class="reference internal" href="90_appendix_software.html">8. ソフトウェア</a></li>
@@ -106,7 +111,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">量子化学計算ヒッチハイクガイド</a>
+          <a href="index.html">量子化学計算ヒッチハイクガイド</a>
         
       </nav>
 
@@ -135,15 +140,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>量子化学計算ヒッチハイクガイド</li>
+      <li>5. 構造最適化</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/40_opt.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -157,54 +162,36 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>量子化学計算ヒッチハイクガイド<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="10_introduction.html">1. はじめに</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_introduction.html#id3">1.1. おことわり</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="20_singlepoint.html">2. 一点 (single point) 計算</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="20_singlepoint.html#id1">2.1. ホルムアルデヒドの計算</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20_singlepoint.html#id2">2.2. 計算終了の確認</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20_singlepoint.html#id4">2.3. 計算結果の見方</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="20_model_chemistry.html">3. モデル化学</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="20_model_chemistry.html#id2">3.1. 基底関数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20_model_chemistry.html#id5">3.2. 分子軌道計算</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20_model_chemistry.html#density-functional-df">3.3. 密度汎関数(Density Functional; DF)法</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="30_modeling.html">4. 分子モデリング</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="30_modeling.html#id2">4.1. 分子構造の入手方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="30_modeling.html#id8">4.2. 入力座標系</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="40_opt.html">5. 構造最適化</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="40_opt.html#id2">5.1. 構造最適化の手順</a></li>
-<li class="toctree-l2"><a class="reference internal" href="40_opt.html#id3">5.2. 構造最適化のコツ</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="50_others.html">6. 応用計算</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="50_others.html#id2">6.1. 相互作用エネルギー</a></li>
-<li class="toctree-l2"><a class="reference internal" href="50_others.html#id3">6.2. エネルギー微分</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="95_glossary.html">7. 用語集</a></li>
-<li class="toctree-l1"><a class="reference internal" href="90_appendix_software.html">8. ソフトウェア</a></li>
-<li class="toctree-l1"><a class="reference internal" href="99_reference.html">9. 参考文献</a></li>
-</ul>
+<h1>5. 構造最適化<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>量子化学計算プログラムに入力する分子構造は、どんな構造であっても計算しようとします。
+モデリングソフト等により人間の手で作成した構造は、いくらでも作為的な構造が作れ、
+この構造から得られた量子化学計算結果には化学的な根拠がありません。</p>
+<p>一般的には、モデリングした構造を元に構造最適化計算を行い、
+得られた最適化構造を使って電子状態を解析します。</p>
+<div class="section" id="id2">
+<h2>5.1. 構造最適化の手順<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>量子化学計算プログラムは構造最適化において、以下の計算を繰り返し行っています。</p>
+<ol class="arabic simple">
+<li>一点計算の実行</li>
+<li>力(エネルギーの核座標微分)計算</li>
+<li>座標の更新</li>
+<li>収束判定(座標および力の最大変化量・二乗平均平方根(RMS))</li>
+</ol>
 </div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id3">
+<h2>5.2. 構造最適化のコツ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">モジュール索引</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></li>
+<li>最適化構造に近い構造から最適化計算</li>
 </ul>
+<p>一般に、高価な計算(基底関数・計算方法)と安価な計算で最適化構造を比較した場合、
+安価な計算結果が高価な計算結果に比べて大幅に構造が異なるケースは多くありません。
+まずは、6-31G/HFのモデルか、もしくは半経験的分子軌道法などを使って最適化した後に、
+目的の計算モデルで構造最適化した方が、
+いきなり人工的に作成したモデルから始めるよりもゴールに近いでしょう。</p>
+<p>AvogadroやWinmostar等のGUIソフトウェアには、分子力学法を使った最適化計算が組み込まれている場合がありますので、
+まずはその機能を使ってみると良いでしょう。
+もちろん、試す前にセーブを忘れずに。</p>
+</div>
 </div>
 
 
@@ -215,8 +202,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="10_introduction.html" class="btn btn-neutral float-right" title="1. はじめに" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="50_others.html" class="btn btn-neutral float-right" title="6. 応用計算" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="30_modeling.html" class="btn btn-neutral" title="4. 分子モデリング" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

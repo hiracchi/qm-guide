@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>量子化学計算ヒッチハイクガイド &mdash; 量子化学計算ヒッチハイクガイド 2019.1.0/alpha ドキュメント</title>
+  <title>1. はじめに &mdash; 量子化学計算ヒッチハイクガイド 2019.1.0/alpha ドキュメント</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="1. はじめに" href="10_introduction.html" /> 
+    <link rel="next" title="2. 一点 (single point) 計算" href="20_singlepoint.html" />
+    <link rel="prev" title="量子化学計算ヒッチハイクガイド" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,7 +48,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> 量子化学計算ヒッチハイクガイド
+            <a href="index.html" class="icon icon-home"> 量子化学計算ヒッチハイクガイド
           
 
           
@@ -82,8 +83,11 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="10_introduction.html">1. はじめに</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. はじめに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.1. おことわり</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="20_singlepoint.html">2. 一点 (single point) 計算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="20_model_chemistry.html">3. モデル化学</a></li>
 <li class="toctree-l1"><a class="reference internal" href="30_modeling.html">4. 分子モデリング</a></li>
@@ -106,7 +110,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">量子化学計算ヒッチハイクガイド</a>
+          <a href="index.html">量子化学計算ヒッチハイクガイド</a>
         
       </nav>
 
@@ -135,15 +139,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>量子化学計算ヒッチハイクガイド</li>
+      <li>1. はじめに</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/10_introduction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -157,54 +161,26 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>量子化学計算ヒッチハイクガイド<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="10_introduction.html">1. はじめに</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_introduction.html#id3">1.1. おことわり</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="20_singlepoint.html">2. 一点 (single point) 計算</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="20_singlepoint.html#id1">2.1. ホルムアルデヒドの計算</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20_singlepoint.html#id2">2.2. 計算終了の確認</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20_singlepoint.html#id4">2.3. 計算結果の見方</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="20_model_chemistry.html">3. モデル化学</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="20_model_chemistry.html#id2">3.1. 基底関数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20_model_chemistry.html#id5">3.2. 分子軌道計算</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20_model_chemistry.html#density-functional-df">3.3. 密度汎関数(Density Functional; DF)法</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="30_modeling.html">4. 分子モデリング</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="30_modeling.html#id2">4.1. 分子構造の入手方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="30_modeling.html#id8">4.2. 入力座標系</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="40_opt.html">5. 構造最適化</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="40_opt.html#id2">5.1. 構造最適化の手順</a></li>
-<li class="toctree-l2"><a class="reference internal" href="40_opt.html#id3">5.2. 構造最適化のコツ</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="50_others.html">6. 応用計算</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="50_others.html#id2">6.1. 相互作用エネルギー</a></li>
-<li class="toctree-l2"><a class="reference internal" href="50_others.html#id3">6.2. エネルギー微分</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="95_glossary.html">7. 用語集</a></li>
-<li class="toctree-l1"><a class="reference internal" href="90_appendix_software.html">8. ソフトウェア</a></li>
-<li class="toctree-l1"><a class="reference internal" href="99_reference.html">9. 参考文献</a></li>
-</ul>
+<h1>1. はじめに<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>元々実験屋であった著者が、量子化学計算に興味を持ち、
+畏れ多いことに大規模分子用の量子化学計算プログラムProteinDF <a class="footnote-reference" href="#proteindf" id="id2">[1]</a> を開発しています。</p>
+<p>私たちの研究室には、化学も生物も、そしてコンピュータも専門ではない学生さんが
+飛び込んで来られます。
+何から手をつけたら良いかわからない、いきなり専門知識を振り回されないか不安だという学生さんに向けて作られています。
+なるべく初心者でも気軽に量子化学計算に取り組めるように、
+そして研究に役立てられるように本ガイドを作成しています。</p>
+<div class="section" id="id3">
+<h2>1.1. おことわり<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>本ドキュメントは未完成です。
+間違い等ありましたら、お知らせいただけると幸いです。
+また、コメント・リクエスト等ありましたら、遠慮なくお知らせください。</p>
+<table class="docutils footnote" frame="void" id="proteindf" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="https://proteindf.github.io/">https://proteindf.github.io/</a></td></tr>
+</tbody>
+</table>
 </div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">モジュール索引</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></li>
-</ul>
 </div>
 
 
@@ -215,8 +191,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="10_introduction.html" class="btn btn-neutral float-right" title="1. はじめに" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="20_singlepoint.html" class="btn btn-neutral float-right" title="2. 一点 (single point) 計算" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="index.html" class="btn btn-neutral" title="量子化学計算ヒッチハイクガイド" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

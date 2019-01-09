@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. モデル化学 &mdash; 量子化学計算ヒッチハイクガイド 2019.1.0/alpha ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="4. 分子モデリング" href="30_modeling.html" />
+    <link rel="prev" title="2. 一点 (single point) 計算" href="20_singlepoint.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> 量子化学計算ヒッチハイクガイド
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2019.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="10_introduction.html">1. はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_singlepoint.html">2. 一点 (single point) 計算</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. モデル化学</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.1. 基底関数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.1. 基底関数の形</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.1.2. 基底関数の種類</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">3.2. 分子軌道計算</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hartree-fock-roothaan-hfr">3.2.1. Hartree-Fock-Roothaan (HFR) 法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">3.2.1.1. 近似</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">3.2.1.2. 計算コスト</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#post-hf">3.2.2. post HF法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mollerplesset-mp">3.2.2.1. Møller–Plesset(MP)法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-interaction-ci">3.2.2.2. 配置間相互作用(configuration interaction; CI)法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coupled-cluster-cc">3.2.2.3. クラスター展開(Coupled Cluster; CC)法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#density-functional-df">3.3. 密度汎関数(Density Functional; DF)法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">3.3.1. 交換相関汎関数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">3.3.2. ハイブリッド法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="30_modeling.html">4. 分子モデリング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_opt.html">5. 構造最適化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="50_others.html">6. 応用計算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="95_glossary.html">7. 用語集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="90_appendix_software.html">8. ソフトウェア</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_reference.html">9. 参考文献</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">量子化学計算ヒッチハイクガイド</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>3. モデル化学</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/20_model_chemistry.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>3. モデル化学<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>3.1. 基底関数<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id3">
+<h3>3.1.1. 基底関数の形<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>水素原子など1電子系のSchrödinger方程式の波動関数(厳密解)はSlater型関数であることが知られています。</p>
+<div class="math notranslate nohighlight">
+\[f\left( r \right) = \exp \left[ {- \alpha r} \right]\]</div>
+<p>一方、多電子(分子)系の波動関数は厳密に求めることは難しいため、
+原子軌道の線形結合で近似・代用します。Linear Combination of Atomic Orbital (LCAO)とよばれます。</p>
+<div class="math notranslate nohighlight">
+\[\phi^{\sigma}_{i} \left( r \right) = \sum^{N_{bf}}_{p}{C^{\sigma}_{pi} g_{p}\left( r \right)}\]</div>
+<p>GaussianやGAMESSなどの量子化学計算ソフトウェアでは、
+分子積分の計算効率を考慮して、原子軌道を模したGauss型関数を用います。</p>
+<div class="math notranslate nohighlight">
+\[g\left( r \right) = \exp \left[ {- \alpha r^{2}} \right]\]</div>
+<div class="admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<blockquote>
+<div>Gauss型関数が使われる理由は、Gauss型関数同士の積が新たなGauss型関数になるためです。
+分子積分計算が容易になります。</div></blockquote>
+<div class="last math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\exp \left[ {-\alpha \left( r - A \right)^{2}} \right] \cdot \exp \left[ {-\beta \left( r - B \right)^{2}} \right] &amp;= \kappa_{AB} \exp \left[ {-\zeta \left( r - P \right)^{2}} \right]\\\zeta &amp;= \alpha + \beta\\P &amp;= \frac{\alpha A + \beta B}{\zeta}\\\kappa_{AB} &amp;= \exp \left[ {-\frac{\alpha \beta}{\zeta} \left( A - B \right)^{2}} \right]\end{aligned}\end{align} \]</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>3.1.2. 基底関数の種類<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>6-31Gやcc-pVTZ等が基底関数の種類です。
+一般に、基底関数の総数が多くなるほど、シミュレーション精度は向上しますが、計算コストが高くなります。
+ニーズに合わせた基底関数の選択が必要です。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>3.2. 分子軌道計算<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="hartree-fock-roothaan-hfr">
+<h3>3.2.1. Hartree-Fock-Roothaan (HFR) 法<a class="headerlink" href="#hartree-fock-roothaan-hfr" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>HFR法では、次の固有値問題を解きます。
+密度汎関数法の場合はKohn-Sham-Roothaan(KSR)法とよばれますが、ほぼ一緒です。
+HFR法(およびKSR法)の詳細は参考文献を参照してください。</p>
+<div class="math notranslate nohighlight">
+\[FC = SC \epsilon\]</div>
+<p>ここで <span class="math notranslate nohighlight">\(F\)</span> はFock行列(密度汎関数法の場合はKohn-Sham(KS)行列)、<span class="math notranslate nohighlight">\(C\)</span> は係数行列、
+<span class="math notranslate nohighlight">\(S\)</span> は重なり行列、<span class="math notranslate nohighlight">\(\epsilon\)</span> は軌道エネルギーとよばれます。</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}S_{pq} &amp;= {\langle pq \rangle}\\{\langle pq \rangle} &amp;= \int {g^{*}_{p} \left( r \right) }{g_{q} \left( r \right) }  d\bf{r}\end{aligned}\end{align} \]</div>
+<p><span class="math notranslate nohighlight">\({\langle pq \rangle}\)</span> は重なり積分とよばれます。</p>
+<p>Fock(KS)行列は以下の通りです。</p>
+<div class="math notranslate nohighlight">
+\[F_{pq} = H^{core}_{pq} + J_{pq} + \alpha K_{pq} + \beta \mu^{XC}_{pq}\]</div>
+<p><span class="math notranslate nohighlight">\(H^{core}\)</span> はコアハミルトニアン(一電子項)、<span class="math notranslate nohighlight">\(J\)</span> はクーロン項、
+<span class="math notranslate nohighlight">\(K\)</span> はFock交換項、<span class="math notranslate nohighlight">\(\mu\)</span> は密度汎関数法における交換相関項です。
+HF法の場合は <span class="math notranslate nohighlight">\(\alpha = 1 , \beta = 0\)</span> 、
+純粋な密度汎関数法の場合は <span class="math notranslate nohighlight">\(\alpha = 0 , \beta = 1\)</span> となります。
+ハイブリッド密度汎関数法では、 <span class="math notranslate nohighlight">\(\alpha \neq 0 , \beta \neq 0\)</span> となります。</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}H^{core}_{pq} &amp;= T_{pq} + V^{nucl}_{pq}\\T_{pq} &amp;= \int{ \phi^{*}_{p} \left( \bf{r} \right)  \left[ -\frac{1}{2} \nabla^{2} \right] \phi_{q} \left( \bf{r} \right) } d\bf{r}\\V^{nucl}_{pq} &amp;= - \sum^{N_{atom}}_{C}{ Z_{C} V^{C}_{pq} }\\V^{C}_{pq} &amp;= \int{ \phi^{*}_{p} \left( \textbf{r} \right)  \frac{1}{ | \bf{r}-\bf{C} | } \phi_{q} \left( \bf{r} \right) }\\J_{pq} &amp;= \sum_{pq} { P_{pq} {\langle pq | rs \rangle} }\\K_{pq} &amp;= - \frac{1}{2} \sum_{pq} { P_{pq} {\langle pr | qs \rangle} }\\{\langle pq | rs \rangle} &amp;= \iint {g^{*}_{p} \left( r_{1} \right) }{g_{q} \left( r_{1} \right) } {\frac{1}{|r_{1} - r_{2}|}} {g^{*}_{r} \left( r_{2} \right) }{g_{s} \left( r_{2} \right) } dr_{1} dr_{2}\\\mu^{XC}_{pq} &amp;= \int{ \phi^{*}_{p}{\left(\bf{r}\right)}  \mu^{XC}{\left(\rho\right)} \phi_{q}{\left(\bf{r}\right)} } d\textbf{r}\\P_{pq} &amp;= 2 \sum_{i}{C^{*}_{pi} C_{qi}}\end{aligned}\end{align} \]</div>
+<p>ここで強調しておきたいことは、密度行列 <span class="math notranslate nohighlight">\(P\)</span> を介して、係数行列 <span class="math notranslate nohighlight">\(C\)</span> が
+Fock行列の計算に関与していることです。
+したがって、HFR方程式は一度に解くことができず、
+HFR方程式の矛盾がなくなるまで繰り返し計算する必要があるのです(自己無撞着場(self-consistent field; SCF)計算)。</p>
+<div class="admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p class="last">Fock行列計算に出てきた積分は分子積分とよばれます。
+特に <span class="math notranslate nohighlight">\({\langle pq | rs \rangle}\)</span> は4中心積分とよばれ、この積分自体の計算コストが高い上に、SCF計算で何度も繰り返し計算する必要があります。</p>
+</div>
+<div class="section" id="id6">
+<h4>3.2.1.1. 近似<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li>Born-Oppenheimer近似</li>
+<li>相対論効果を無視</li>
+<li>解(波動関数)となるSlator行列式は1つだけ</li>
+<li>平均場近似</li>
+</ul>
+<p>HF法により、全エネルギーのほぼ99%が得られます(残りは電子相関)。
+HF法によって、求められる化学反応に対する議論( <span class="math notranslate nohighlight">\(0.1 Å\)</span> , 数 <span class="math notranslate nohighlight">\(\mathrm{kcal \, mol^{-1}}\)</span> )に対し、
+必要十分なシミュレーション精度が得られるかどうかは、研究者自身が判断する必要があります。</p>
+</div>
+<div class="section" id="id7">
+<h4>3.2.1.2. 計算コスト<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id8">
+<h5>3.2.1.2.1. 行列演算<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<p>例えば行列積の計算量は、行列の次元(量子化学計算の場合は基底関数の総数 <span class="math notranslate nohighlight">\(N_{bf}\)</span> )に対し、
+<span class="math notranslate nohighlight">\(O\left( N^{3}_{bf} \right)\)</span> になります。</p>
+<p>一方、行列要素を倍精度でもたせると、データ量は行列一つあたり <span class="math notranslate nohighlight">\(8 N^{2}_{bf} \mathrm{byte}\)</span> になります。</p>
+</div>
+<div class="section" id="id9">
+<h5>3.2.1.2.2. 分子積分<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<p>4中心積分 <span class="math notranslate nohighlight">\({\langle pr | qs \rangle}\)</span> の計算コストは形式的に <span class="math notranslate nohighlight">\(O \left( N^{4}_{bf} \right)\)</span> となります。
+実際のプログラムでは、カットオフ法などの工夫により高速化され、
+計算量が分子サイズに対して線形になる <span class="math notranslate nohighlight">\(O \left( N_{bf} \right)\)</span> 法なども開発されています。</p>
+</div>
+</div>
+</div>
+<div class="section" id="post-hf">
+<h3>3.2.2. post HF法<a class="headerlink" href="#post-hf" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>金属の計算</li>
+<li>電子相関の取扱</li>
+<li>相対論効果の取扱</li>
+</ul>
+<div class="section" id="mollerplesset-mp">
+<h4>3.2.2.1. Møller–Plesset(MP)法<a class="headerlink" href="#mollerplesset-mp" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>摂動論に基づいて電子相関を取り扱う方法です。
+2次、3次、4次の摂動を考慮したものは、それぞれMP2、MP3、MP4とよばれ、
+MP法の総称としてMPn法と書かれたりもします。
+MP2の計算量は形式的に <span class="math notranslate nohighlight">\(O(N^5)\)</span> 。</p>
+</div>
+<div class="section" id="configuration-interaction-ci">
+<h4>3.2.2.2. 配置間相互作用(configuration interaction; CI)法<a class="headerlink" href="#configuration-interaction-ci" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>スレーター行列式の線形結合によって電子相関を考慮する方法です。
+すべての配置を解くFull CI法は計算コストが膨大なので、
+1電子励起、2電子励起で打ち切ったCIS, CID, CISD法がよく用いられます。</p>
+</div>
+<div class="section" id="coupled-cluster-cc">
+<h4>3.2.2.3. クラスター展開(Coupled Cluster; CC)法<a class="headerlink" href="#coupled-cluster-cc" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>クラスター展開によって電子相関を考慮する方法です。
+CCSDの計算量は形式的に <span class="math notranslate nohighlight">\(O(N^6)\)</span> 。</p>
+</div>
+</div>
+</div>
+<div class="section" id="density-functional-df">
+<h2>3.3. 密度汎関数(Density Functional; DF)法<a class="headerlink" href="#density-functional-df" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>交換相関汎関数によって、HF法とほぼ同様の計算コストで電子相関の効果も取り込める便利な方法です。
+ただし、交換相関汎関数の厳密な形はわかっていないため、
+現状では(経験的な)パラメータが含まれています。
+そのため、厳密な分子軌道法とは区別されています。
+非常に実用的なため、様々な系での計算例が報告されています。</p>
+<div class="section" id="id10">
+<h3>3.3.1. 交換相関汎関数<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>VWNやB88LYPなどが代表的な交換相関汎関数です。
+量子化学計算ソフトウェアによって交換相関汎関数の名称が微妙に異なるので
+ソフトウェアのリファレンスをよく読んでください。</p>
+<div class="admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p class="last">Gaussianの汎関数はこちら <a class="footnote-reference" href="#gaussian-dft" id="id11">[1]</a></p>
+</div>
+<p>交換相関汎関数はその変数の種類によって、局所密度近似(LDA)や一般化密度勾配近似(GGA)、メタGGAなどに分類されます。
+LDAは電子密度を用いて表現したもの、GGAはLDAに加えて密度勾配を考慮して表現したもの、
+メタGGAはさらに二次密度勾配や運動エネルギー密度を使って表現したものです。</p>
+<p>後発の交換相関汎関数の方が良いシミュレーション結果を与えるかというと、必ずしもそうとは言い切れません。
+過去の計算事例を参考にしたり、自身でチェックするなど良く吟味してください。</p>
+</div>
+<div class="section" id="id12">
+<h3>3.3.2. ハイブリッド法<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>前述の交換相関汎関数を用いた純粋な密度汎関数法では、一般にバンドギャップ(HOMO-LUMOギャップ)が狭くなる傾向にあります(およそ2〜3 eV あたり)。
+一方、HF法ではバンドギャップが過大評価される傾向にあります(8〜12 eV ?)。
+そこで現実的なバンドギャップに合わせるように、Fock交換項と密度汎関数法の交換相関項を混ぜ合わせたものがハイブリッド法です。
+有名なB3LYPはハイブリッド法に分類されます。B3LYPではFock交換項が20%含まれていますが、20%に物理的意味はありません。
+実際ハイブリッド法では、バンドギャップがHF法と純粋な密度汎関数法の中間あたりに求められます(5 eV あたり)。</p>
+<p>誤差関数を用いてFock交換項を混ぜるLong-range Correlation (LC)法も有用です。</p>
+<table class="docutils footnote" frame="void" id="gaussian-dft" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[1]</a></td><td><a class="reference external" href="http://gaussian.com/dft/">http://gaussian.com/dft/</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="30_modeling.html" class="btn btn-neutral float-right" title="4. 分子モデリング" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="20_singlepoint.html" class="btn btn-neutral" title="2. 一点 (single point) 計算" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Toshiyuki HIRANO
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
